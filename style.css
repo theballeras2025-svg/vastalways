@@ -41,3 +41,9 @@ html, body { height: 100%; margin: 0; padding: 0; font-family: 'Glacial Indiffer
     .category-column { border-right: none; border-bottom: 1px solid #eaeaea; padding: 40px 20px; }
     .main-photo-box { height: 350px; }
 }
+/* Forces any video inside the main box to match the exact size of the box */
+.main-photo-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Clips the video perfectly without warping your clothing proportions */
+}
