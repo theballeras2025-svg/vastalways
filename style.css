@@ -41,9 +41,23 @@ html, body { height: 100%; margin: 0; padding: 0; font-family: 'Glacial Indiffer
     .category-column { border-right: none; border-bottom: 1px solid #eaeaea; padding: 40px 20px; }
     .main-photo-box { height: 350px; }
 }
-/* Forces any video inside the main box to match the exact size of the box */
+/* Optimized video bounding box rules specifically for Safari */
+.main-photo-box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative; /* Fixes a rendering bug in Safari's layout engine */
+}
+
+/* Forces any video inside the main box to match the container dimensions */
 .main-photo-box video {
     width: 100%;
     height: 100%;
+    min-height: 100%;
+    max-height: 100%;
     object-fit: cover; /* Clips the video perfectly without warping your clothing proportions */
+    
+    /* Safari Specific Properties */
+    -webkit-transform: translate3d(0,0,0); /* Forces Apple devices to render the layout via hardware acceleration */
+    transform: translate3d(0,0,0);
 }
